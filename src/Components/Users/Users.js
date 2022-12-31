@@ -1,15 +1,23 @@
 // import ContainerCard from "../UI/ContainerCard";
 // import UserCard from "../UI/UserCard";
+
+// import React, { useState } from "react";
+
 import UsersList from "./UsersList";
 // import ContainerCard from "../UI/ContainerCard";
 
 import classes from "./Users.module.css";
+// import { useState } from "react";
 
 const Users = (props) => {
+  // const [elements, deletElement] = useState(props.items);
+
   return (
     <div className={classes.users}>
       {props.items.map((user) => (
         <UsersList
+          onClick={props.onClick}
+          id={user.id}
           key={user.id}
           username={user.username}
           userage={user.userage}

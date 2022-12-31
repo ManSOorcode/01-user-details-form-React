@@ -1,8 +1,9 @@
 import classes from "./Button.module.css";
 
-const Button = (props) => {
+const Button = ({ onPass }) => {
+  // console.log(onPass());
   return (
-    <button className={classes.button} onClick={props.onPass}>
+    <button className={classes.button} onClick={onPass}>
       Okay
     </button>
   );

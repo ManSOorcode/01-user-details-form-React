@@ -8,7 +8,8 @@ const NewUserData = (props) => {
   const [enterUserName, setUserName] = useState("");
   const [enterUserAge, setUserAge] = useState("");
 
-  const [modal, setModal] = useState(true);
+  const [modal, setModal] = useState(false);
+
   const nameChangehandler = (event) => {
     setUserName(event.target.value);
   };
@@ -17,10 +18,18 @@ const NewUserData = (props) => {
     setUserAge(event.target.value);
   };
 
-  let modalValue = modal;
+  // let ModalWindow = (prione, pritwo) => {
+  //   <InvalidInput
+  //     onOpen={() => {
+  //       return prione;
+  //     }}
+  //     onClose={() => {
+  //       return pritwo;
+  //     }}
+  //   />;
+  // };
   const addUserHandler = (event) => {
     event.preventDefault();
-    console.log(event.target);
 
     if (enterUserName !== "" && enterUserAge !== "") {
       const newUserData = {
@@ -29,29 +38,46 @@ const NewUserData = (props) => {
       };
       props.onUserData(newUserData);
 
-      modalValue = modal;
+      // modalValue = modal;
     }
+
+    if (enterUserName == "" && enterUserAge == "") {
+      setModal("input");
+    } else if (enterUserAge < 0) {
+      setModal("negative");
+    }
+
+    // modalValue = modal;
 
     // onClose(setModal(false));
 
     setUserName("");
     setUserAge("");
+    // console.log(false);
+    // setModal(true);
+
+    // console.log(event.target);
   };
 
   const openHandeler = () => {
-    return modalValue;
+    return true;
   };
+
+  // // console.log(useState(false));
 
   const closeHandeler = () => {
-    console.log(modalValue);
-    console.log(setModal(modalValue));
-    // return setModal(null);
+    return setModal(false);
   };
-
+  // onClick={() => setModal(true)}
   return (
     <div>
-      <InvalidInput onOpen={openHandeler} onClose={closeHandeler} />
-      {/* <InvalidAge onOpen={openHandeler} onClose={closeHandeler} /> */}
+      {modal == "input" && (
+        <InvalidInput onOpen={openHandeler} onClose={closeHandeler} />
+      )}
+      {modal == "negative" && (
+        <InvalidAge onOpen={openHandeler} onClose={closeHandeler} />
+      )}
+      {/* <ModalWindow /> */}
       <form onSubmit={addUserHandler}>
         <label htmlFor="userName">Username :</label>
         <input

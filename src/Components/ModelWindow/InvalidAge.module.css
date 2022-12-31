@@ -1,5 +1,5 @@
-.invalid_age {
-  width: 30rem;
+.invalid-age {
+  width: 25rem;
   height: 10rem;
   /* background-color: rgba(5, 5, 5, 0.95); */
   background-color: rgba(215, 36, 36, 0.95);
@@ -13,7 +13,7 @@
 
   border-radius: 20px;
 }
-.heading-name_age {
+.heading-name-age {
   height: 30%;
   width: 100%;
   text-align: center;
@@ -23,7 +23,7 @@
 
   border-bottom: 2px solid #fff;
 }
-.contents_age {
+.contents-age {
   height: 50%;
   width: 100%;
   padding: 0px 15px 0 15px;
@@ -33,7 +33,7 @@
 }
 
 @media screen and (max-width: 768px) {
-  .invalid {
+  .invalid-age {
     width: 17rem;
   }
 }
