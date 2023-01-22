@@ -43,7 +43,7 @@ const NewUserData = (props) => {
 
     if (enterUserName == "" && enterUserAge == "") {
       setModal("input");
-    } else if (enterUserAge < 0) {
+    } else if (enterUserAge < 0 || enterUserAge > 110) {
       setModal("negative");
     }
 
